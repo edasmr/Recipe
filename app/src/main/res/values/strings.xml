@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">FoodReceipe</string>
+
+    <string name="title_home">Home</string>
+    <string name="title_save">Recipes</string>
+    <string name="today_recipe">Today\'s Top Pick</string>
+    <string name="top_recipe">Top Recipes</string>
+    <string name="see_all">See All</string>
+    <string name="readyInMinutes">%1$s min</string>
+    <string name="pricePerServing">$%1$f</string>
+    <string name="made_by">by Carolline Sterwart</string>
+
+
+</resources>

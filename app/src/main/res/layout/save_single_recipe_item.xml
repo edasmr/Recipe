@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="recipe"
+            type="com.example.deneme.domain.entity.Receipe" />
+    </data>
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/recipeSingleItemCard"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:layout_margin="16dp"
+        app:cardCornerRadius="16dp"
+        app:cardElevation="10dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/saveTitle"
+                android:layout_width="207dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:text="@{recipe.title}"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toTopOf="@+id/saveBy"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/recipeImage"
+                app:layout_constraintTop_toTopOf="@+id/recipeImage" />
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/recipeImage"
+                android:layout_width="125dp"
+                android:layout_height="125dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="16dp"
+                app:cardCornerRadius="10dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <ImageView
+                    android:id="@+id/imageView"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scaleType="centerCrop"
+                    app:imageUrl="@{recipe.image}"
+                    tools:srcCompat="@tools:sample/avatars" />
+
+            </androidx.cardview.widget.CardView>
+
+            <TextView
+                android:id="@+id/saveBy"
+                android:layout_width="207dp"
+                android:layout_height="wrap_content"
+                android:text="by Gordon Ramsay"
+                app:layout_constraintBottom_toTopOf="@+id/imageView2"
+                app:layout_constraintEnd_toEndOf="@+id/saveTitle"
+                app:layout_constraintStart_toStartOf="@+id/saveTitle"
+                app:layout_constraintTop_toBottomOf="@+id/saveTitle" />
+
+            <TextView
+                android:id="@+id/savePoint"
+                android:layout_width="175dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:text="@{recipe.spoonacularScore.toString()}"
+                app:layout_constraintBottom_toBottomOf="@+id/imageView2"
+                app:layout_constraintEnd_toEndOf="@+id/saveBy"
+                app:layout_constraintStart_toEndOf="@+id/imageView2"
+                app:layout_constraintTop_toTopOf="@+id/imageView2" />
+
+            <ImageView
+                android:id="@+id/imageView2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toTopOf="@+id/imageView3"
+                app:layout_constraintStart_toStartOf="@+id/saveBy"
+                app:layout_constraintTop_toBottomOf="@+id/saveBy"
+                app:srcCompat="@drawable/ic_baseline_star_24"
+                app:tint="#fcb30a" />
+
+            <TextView
+                android:id="@+id/saveFire"
+                android:layout_width="175dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:text='@{recipe.readyInMinutes.toString() + " min"}'
+                app:layout_constraintBottom_toBottomOf="@+id/imageView3"
+                app:layout_constraintEnd_toEndOf="@+id/saveTitle"
+                app:layout_constraintStart_toEndOf="@+id/imageView3"
+                app:layout_constraintTop_toTopOf="@+id/imageView3" />
+
+            <ImageView
+                android:id="@+id/imageView3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="@+id/recipeImage"
+                app:layout_constraintStart_toStartOf="@+id/imageView2"
+                app:layout_constraintTop_toBottomOf="@+id/imageView2"
+                app:srcCompat="@drawable/ic_baseline_access_time_24"
+                app:tint="#898d97" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+</layout>

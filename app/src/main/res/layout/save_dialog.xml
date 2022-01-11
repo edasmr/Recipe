@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="recipe"
+            type="com.example.deneme.domain.entity.Receipe" />
+    </data>
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="327dp"
+        android:layout_height="298dp"
+        android:orientation="vertical"
+        app:cardCornerRadius="10dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="22dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="11dp"
+                android:layout_marginRight="21dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:id="@+id/recipename"
+                    android:layout_height="22dp"
+                    android:text="@{recipe.title}"
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    tools:text="Fruid Salad With Milk" />
+
+                <ImageView
+                    android:layout_width="22dp"
+                    android:layout_height="18dp"
+                    android:layout_marginLeft="99dp"
+                    android:src="@drawable/ic_display" />
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="19dp"
+                android:layout_marginLeft="20dp"
+                android:textSize="14dp"
+                android:text="@string/made_by"
+                tools:text="by Carolline Sterwart" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="21dp"
+                android:layout_marginTop="1dp"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="12dp"
+                    android:layout_height="12dp"
+                    android:layout_marginTop="4.33dp"
+                    android:src="@drawable/ic_baseline_star_24" />
+
+                <TextView
+                    android:layout_width="17dp"
+                    android:layout_height="16dp"
+                    android:id="@+id/spooncularScore"
+                    android:layout_marginLeft="8.72dp"
+                    android:layout_marginTop="2.33dp"
+                    android:text="@{recipe.spoonacularScore.toString()}"
+                    android:textColor="@color/black"
+                    android:textSize="12sp"
+                    app:layout_constraintStart_toEndOf="@+id/img_star"
+                    tools:text="4.8" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="75dp"
+                android:layout_marginLeft="21dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginRight="21dp"
+                android:orientation="horizontal">
+
+                <ImageView
+                    imageUrl="@{recipe.image}"
+                    android:id="@+id/recipeImage"
+                    android:layout_width="75dp"
+                    android:layout_height="75dp"
+                    android:src="@color/black" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="75dp"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="18dp"
+                        android:layout_height="18dp"
+                        android:layout_marginLeft="50dp"
+                        android:layout_marginTop="8dp"
+                        android:src="@drawable/ic_baseline_access_time_24" />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="22dp"
+                            android:layout_marginLeft="8dp"
+                            android:id="@+id/readyInMinutes"
+                            android:layout_marginTop="5dp"
+                            android:text="@{recipe.readyInMinutes.toString()}"
+                            android:textColor="@color/black"
+                            android:textSize="16sp"
+                            tools:text="15" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="22dp"
+                            android:layout_marginLeft="8dp"
+                            android:layout_marginTop="5dp"
+                            android:text="minutes"
+                            android:textSize="14sp" />
+
+                    </LinearLayout>
+
+                    <ImageView
+                        android:layout_width="18dp"
+                        android:layout_height="18dp"
+                        android:layout_marginLeft="30dp"
+                        android:layout_marginTop="8dp"
+                        android:src="@drawable/ic_service" />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="22dp"
+                            android:id="@+id/pricePerServing"
+                            android:layout_marginLeft="8dp"
+                            android:layout_marginTop="5dp"
+                            android:text="@{recipe.pricePerServing.toString()}"
+
+                            android:textColor="@color/black"
+                            android:textSize="16sp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="22dp"
+                            android:layout_marginLeft="8dp"
+                            android:layout_marginTop="5dp"
+                            android:text="USD"
+                            android:textSize="14sp" />
+
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="21dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginRight="28dp"
+                android:layout_marginBottom="26dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="22dp"
+                    android:text="Description"
+                    android:textColor="@color/black"
+                    android:textSize="16dp"
+                    android:textStyle="bold" />
+                        <ScrollView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:id="@+id/summary"
+                                android:layout_marginTop="10dp"
+                                android:text="@{recipe.summary}" />
+
+                        </ScrollView>
+
+            </LinearLayout>
+        </LinearLayout>
+    </com.google.android.material.card.MaterialCardView>
+</layout>

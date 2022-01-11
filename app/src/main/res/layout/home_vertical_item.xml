@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="9dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardCornerRadius ="10dp"
+    app:cardMaxElevation="4dp"
+    >
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        
+        <ImageView
+            android:layout_width="match_parent"
+            android:src="@drawable/armut1"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:id="@+id/ver_img"
+            android:layout_height="250dp" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintLayout"
+            android:layout_width="295dp"
+            android:layout_height="96dp"
+            android:background="@drawable/round_bgg"
+            android:layout_marginTop="100dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            >
+
+            <TextView
+                android:id="@+id/name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="20dp"
+                android:text="Fruit Salad With Milk"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias=".1"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias=".15" />
+
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/imageStar"
+                android:src="@drawable/ic_baseline_star_24"
+                app:layout_constraintTop_toBottomOf="@+id/name"
+                app:layout_constraintStart_toStartOf="@+id/name" />
+
+            <TextView
+                android:id="@+id/puan"
+                android:layout_width="40dp"
+                android:layout_height="20dp"
+                android:text="4.8"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintTop_toBottomOf="@+id/name"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toEndOf="@+id/imageStar"
+                app:layout_constraintVertical_bias=".1"
+                 />
+
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/imageTime"
+                android:src="@drawable/ic_baseline_access_time_24"
+                app:layout_constraintTop_toBottomOf="@+id/imageStar"
+                app:layout_constraintStart_toStartOf="@+id/imageStar" />
+
+            <TextView
+                android:id="@+id/dakika"
+                android:layout_width="wrap_content"
+                android:layout_height="20dp"
+                android:layout_marginStart="4dp"
+                android:layout_marginLeft="4dp"
+                android:layout_marginTop="4dp"
+                android:text="20 dk"
+                android:textColor="@color/gray"
+                android:textSize="18sp"
+                android:textStyle="normal"
+                app:layout_constraintStart_toEndOf="@+id/imageTime"
+                app:layout_constraintTop_toBottomOf="@+id/puan" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
+</androidx.cardview.widget.CardView>
