@@ -49,7 +49,7 @@ class HomeFragment : Fragment() {
                         if(it.homeEntity.randomRecipe.isNotEmpty()){
                             list.add(getString(R.string.top_recipe))
 
-                            var randomList = mutableListOf<RandomRecipeList>()
+                            val randomList = mutableListOf<RandomRecipeList>()
                             it.homeEntity.randomRecipe.forEachIndexed { index, recipe ->
                                 if(index % 2 == 0){
                                     randomList.add(RandomRecipeList(mutableListOf(recipe)))
@@ -64,9 +64,9 @@ class HomeFragment : Fragment() {
                         binding.recipeList.adapter = HomeAdapter(list)
                     }
                     is HomeUiState.PageSuccess -> {
-                        var beforeCount = list.size
+                        val beforeCount = list.size
 
-                        var randomList = mutableListOf<RandomRecipeList>()
+                        val randomList = mutableListOf<RandomRecipeList>()
                         it.recipeList.forEachIndexed { index, recipe ->
                             if(index % 2 == 0){
                                 randomList.add(RandomRecipeList(mutableListOf(recipe)))
@@ -77,7 +77,7 @@ class HomeFragment : Fragment() {
 
                         list.addAll(randomList)
 
-                        var endCount = list.size
+                        val endCount = list.size
 
                         binding.recipeList.adapter?.notifyItemChanged(beforeCount, endCount)
                     }

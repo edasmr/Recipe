@@ -1,12 +1,11 @@
 package com.example.deneme.util
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
-import com.example.deneme.R
 import androidx.navigation.ui.setupWithNavController
-import androidx.navigation.ui.setupActionBarWithNavController
+import com.example.deneme.R
 import com.example.deneme.databinding.ActivityMainBinding
 import com.google.android.material.bottomnavigation.BottomNavigationView
 

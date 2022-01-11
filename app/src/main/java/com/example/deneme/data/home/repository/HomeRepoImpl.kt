@@ -1,5 +1,6 @@
 package com.example.deneme.data.home.repository
 
+import android.annotation.SuppressLint
 import com.example.deneme.data.home.local.HomeDatabase
 import com.example.deneme.data.home.local.entity.RecipeEntity
 import com.example.deneme.data.home.local.entity.TodayRecipeEntity
@@ -9,6 +10,7 @@ import java.text.SimpleDateFormat
 import java.util.*
 
 class HomeRepoImpl(private var homeapi: HomeApi, private var homeDatabase: HomeDatabase) : HomeRepo {
+    @SuppressLint("SimpleDateFormat")
     override suspend fun getTodaysRecipe(): Receipe? {
 
         val currentDate = SimpleDateFormat("yyyy-MM-dd").format(Date())
@@ -73,7 +75,7 @@ class HomeRepoImpl(private var homeapi: HomeApi, private var homeDatabase: HomeD
         if(end < recipeCount){
             val recipeList = homeDatabase.receipeDao().getRandom(end - start)
 
-            return recipeList?.map {
+            return recipeList.map {
                 Receipe(
                     id = it.id,
                     title = it.title,

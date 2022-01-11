@@ -39,14 +39,4 @@ class HomeUseCase(private val homeRepository: HomeRepo) {
         }
     }
 
-    suspend fun getCollections(page:Int) : Flow<BaseResult<List<Receipe>, RandomRecipeRes>> {
-        return flow {
-
-            emit(
-                BaseResult.Success(
-                    homeRepository.getCollections(page)
-                )
-            )
-        }
-    }
 }

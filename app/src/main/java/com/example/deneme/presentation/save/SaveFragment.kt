@@ -1,26 +1,28 @@
 package com.example.deneme.presentation.save
 
+import android.os.Build
 import android.os.Bundle
 import android.text.Html
+import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AlertDialog
-import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.flow.collect
+import org.koin.android.ext.android.get
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.deneme.R
 import com.example.deneme.databinding.FragmentSaveBinding
 import com.example.deneme.domain.entity.Receipe
 import com.example.deneme.presentation.home.RandomRecipeList
-import kotlinx.coroutines.flow.collect
-import kotlinx.coroutines.launch
-import org.koin.android.ext.android.get
+import kotlinx.android.synthetic.main.save_grid_recipe_item.*
 
 class SaveFragment : Fragment() {
 
@@ -44,9 +46,10 @@ class SaveFragment : Fragment() {
 
         saveAdapter.onReceipeClick = {
             val edcDesign = LayoutInflater.from(context)
-                .inflate(R.layout.double_recipe_item, null, false)
+                .inflate(R.layout.save_dialog, null, false)
             val alertDialogBuilder = AlertDialog.Builder(requireContext())
             alertDialogBuilder.setView(edcDesign)
+
 
             val name: TextView = edcDesign.findViewById(R.id.recipename)
             val summary: TextView = edcDesign.findViewById(R.id.summary)
@@ -55,11 +58,15 @@ class SaveFragment : Fragment() {
             val recipeImage: ImageView = edcDesign.findViewById(R.id.recipeImage)
             val readyInMinutes:TextView = edcDesign.findViewById(R.id.readyInMinutes)
 
+
+
+
             name.text = it.title
             summary.text = Html.fromHtml(it.summary)
             spooncularScore.text = it.spoonacularScore.toString()
             pricePerServing.text = it.pricePerServing.toString()
             readyInMinutes.text=it.readyInMinutes.toString()
+
 
 
 
@@ -96,7 +103,7 @@ class SaveFragment : Fragment() {
 
                         if (it.saveEntity.randomRecipe.isNotEmpty()) {
 
-                            val randomList = mutableListOf<RandomRecipeList>()
+                            var randomList = mutableListOf<RandomRecipeList>()
                             it.saveEntity.randomRecipe.forEachIndexed { index, recipe ->
                                 if (index % 2 == 0) {
                                     randomList.add(RandomRecipeList(mutableListOf(recipe)))
@@ -119,9 +126,9 @@ class SaveFragment : Fragment() {
 
                     is SaveUiState.PageSuccess -> {
 
-                        val beforeCount = list.size
+                        var beforeCount = list.size
 
-                        val randomList = mutableListOf<RandomRecipeList>()
+                        var randomList = mutableListOf<RandomRecipeList>()
                         it.recipeList.forEachIndexed { index, recipe ->
                             if (index % 2 == 0) {
                                 randomList.add(RandomRecipeList(mutableListOf(recipe)))
@@ -136,16 +143,13 @@ class SaveFragment : Fragment() {
                             }
                         }
 
-                        val endCount = list.size
+                        var endCount = list.size
 
                         binding.recipeList.adapter?.notifyItemChanged(beforeCount, endCount)
                     }
 
                     is SaveUiState.Loading -> {
                         binding.progressBar.visibility = View.VISIBLE
-                    }
-                    else -> {
-                        println("error")
                     }
                 }
             }

@@ -2,12 +2,10 @@ package com.example.deneme.data.save.repo
 
 import com.example.deneme.data.home.local.HomeDatabase
 import com.example.deneme.data.home.local.entity.RecipeEntity
-import com.example.deneme.data.home.local.entity.TodayRecipeEntity
 import com.example.deneme.data.home.remote.api.HomeApi
-import com.example.deneme.data.home.repository.HomeRepo
 import com.example.deneme.domain.entity.Receipe
-import java.text.SimpleDateFormat
-import java.util.*
+
+
 
 class SaveRepoImpl (private var saveapi: HomeApi, private var saveDatabase: HomeDatabase) : SaveRepository {
 
@@ -22,7 +20,7 @@ class SaveRepoImpl (private var saveapi: HomeApi, private var saveDatabase: Home
         if(end < recipeCount){
             val recipeList = saveDatabase.receipeDao().getRandom(end - start)
 
-            return recipeList?.map {
+            return recipeList.map {
                 Receipe(
                     id = it.id,
                     title = it.title,

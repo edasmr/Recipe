@@ -11,7 +11,7 @@ import org.koin.core.logger.Level
 class App : Application() {
     override fun onCreate() {
         super.onCreate()
-        ViewTarget.setTagId(R.id.glide_tag);
+        ViewTarget.setTagId(R.id.glide_tag)
         startKoin{
             androidLogger(Level.ERROR)
             androidContext(this@App)
