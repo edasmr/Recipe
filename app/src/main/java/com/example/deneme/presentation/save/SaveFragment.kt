@@ -20,9 +20,9 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.deneme.R
 import com.example.deneme.databinding.FragmentSaveBinding
+import com.example.deneme.domain.entity.HomeEntity
 import com.example.deneme.domain.entity.Receipe
 import com.example.deneme.presentation.home.RandomRecipeList
-import kotlinx.android.synthetic.main.save_grid_recipe_item.*
 
 class SaveFragment : Fragment() {
 
@@ -105,11 +105,8 @@ class SaveFragment : Fragment() {
 
                             var randomList = mutableListOf<RandomRecipeList>()
                             it.saveEntity.randomRecipe.forEachIndexed { index, recipe ->
-                                if (index % 2 == 0) {
-                                    randomList.add(RandomRecipeList(mutableListOf(recipe)))
-                                } else {
-                                    randomList[randomList.size - 1].list?.add(recipe)
-                                }
+                                SaveUiStateSuccess(index,recipe,randomList)
+
                             }
 
                             randomList.forEach { randomReceipeList ->
@@ -130,11 +127,7 @@ class SaveFragment : Fragment() {
 
                         var randomList = mutableListOf<RandomRecipeList>()
                         it.recipeList.forEachIndexed { index, recipe ->
-                            if (index % 2 == 0) {
-                                randomList.add(RandomRecipeList(mutableListOf(recipe)))
-                            } else {
-                                randomList[randomList.size - 1].list?.add(recipe)
-                            }
+                            SaveUiStateSuccess(index,recipe,randomList)
                         }
 
                         randomList.forEach { randomReceipeList ->
@@ -174,6 +167,18 @@ class SaveFragment : Fragment() {
         super.onDestroyView()
         _binding = null
     }
+
+
+    private fun SaveUiStateSuccess(index:Int,recipe:Receipe,randomList:MutableList<RandomRecipeList> ){
+
+
+                if (index % 2 == 0) {
+                    randomList.add(RandomRecipeList(mutableListOf(recipe)))
+                } else {
+                    randomList[randomList.size - 1].list?.add(recipe)
+                }
+            }
+
 
 
 }

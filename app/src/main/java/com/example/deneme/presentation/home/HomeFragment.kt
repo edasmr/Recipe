@@ -9,6 +9,7 @@ import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.RecyclerView
 import com.example.deneme.R
 import com.example.deneme.databinding.FragmentHomeBinding
+import com.example.deneme.domain.entity.Receipe
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.flow.collect
 import org.koin.android.ext.android.get
@@ -51,11 +52,7 @@ class HomeFragment : Fragment() {
 
                             val randomList = mutableListOf<RandomRecipeList>()
                             it.homeEntity.randomRecipe.forEachIndexed { index, recipe ->
-                                if(index % 2 == 0){
-                                    randomList.add(RandomRecipeList(mutableListOf(recipe)))
-                                }else{
-                                    randomList[randomList.size - 1].list?.add(recipe)
-                                }
+                                SaveUiStateSuccess(index,recipe,randomList)
                             }
 
                             list.addAll(randomList)
@@ -68,11 +65,7 @@ class HomeFragment : Fragment() {
 
                         val randomList = mutableListOf<RandomRecipeList>()
                         it.recipeList.forEachIndexed { index, recipe ->
-                            if(index % 2 == 0){
-                                randomList.add(RandomRecipeList(mutableListOf(recipe)))
-                            }else{
-                                randomList[randomList.size - 1].list?.add(recipe)
-                            }
+                            SaveUiStateSuccess(index,recipe,randomList)
                         }
 
                         list.addAll(randomList)
@@ -107,6 +100,17 @@ class HomeFragment : Fragment() {
         super.onDestroyView()
         _binding = null
     }
+
+    private fun SaveUiStateSuccess(index:Int, recipe: Receipe, randomList:MutableList<RandomRecipeList> ){
+
+
+        if (index % 2 == 0) {
+            randomList.add(RandomRecipeList(mutableListOf(recipe)))
+        } else {
+            randomList[randomList.size - 1].list?.add(recipe)
+        }
+    }
+
 
 
 }
