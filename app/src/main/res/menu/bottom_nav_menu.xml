@@ -6,7 +6,7 @@
         android:icon="@drawable/ic_home"/>
 
     <item android:id="@+id/save_nav"
-        android:title="Save"
+        android:title="Recipe"
         android:icon="@drawable/ic_bos_save"/>
 
 </menu>
