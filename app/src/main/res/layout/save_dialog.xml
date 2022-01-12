@@ -36,6 +36,7 @@
                     android:text="@{recipe.title}"
                     android:textColor="@color/black"
                     android:textSize="16sp"
+                    android:fontFamily="@font/opensans_bold"
                     android:textStyle="bold"
                     tools:text="Fruid Salad With Milk" />
 
@@ -51,6 +52,7 @@
                 android:layout_height="19dp"
                 android:layout_marginLeft="20dp"
                 android:textSize="14dp"
+                android:fontFamily="@font/avenirnextltpro_medium"
                 android:text="@string/made_by"
                 tools:text="by Carolline Sterwart" />
 
@@ -71,6 +73,7 @@
                     android:layout_width="17dp"
                     android:layout_height="16dp"
                     android:id="@+id/spooncularScore"
+                    android:fontFamily="@font/avenirnextltpro_medium"
                     android:layout_marginLeft="8.72dp"
                     android:layout_marginTop="2.33dp"
                     android:text="@{recipe.spoonacularScore.toString()}"
@@ -127,6 +130,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="22dp"
+                            android:fontFamily="@font/avenirnextltpro_medium"
                             android:layout_marginLeft="8dp"
                             android:layout_marginTop="5dp"
                             android:text="minutes"
@@ -159,8 +163,9 @@
 
                         <TextView
                             android:layout_width="wrap_content"
-                            android:layout_height="22dp"
+                            android:layout_height="wrap_content"
                             android:layout_marginLeft="8dp"
+                            android:fontFamily="@font/avenirnextltpro_medium"
                             android:layout_marginTop="5dp"
                             android:text="USD"
                             android:textSize="14sp" />
@@ -182,6 +187,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="22dp"
                     android:text="Description"
+                    android:fontFamily="@font/opensans_bold"
                     android:textColor="@color/black"
                     android:textSize="16dp"
                     android:textStyle="bold" />
@@ -193,6 +199,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
                                 android:id="@+id/summary"
+                                android:fontFamily="@font/avenirnextltpro_medium"
                                 android:layout_marginTop="10dp"
                                 android:text="@{recipe.summary}" />
 
